@@ -8,14 +8,21 @@ var TestCtrl = function($scope, Data) {
 }
 
 app.directive('jstree', function() {
-  return function(scope, element) {
-    scope.$watch('treeData.data', function() {
-      $(element).jstree({
-        "json_data" : scope.treeData,
-        "plugins" : [ "themes", "json_data" ]
+  return {
+    scope: {
+      jstree: '='
+    },
+    link: function(scope, element, attrs) {
+      scope.$watch('jstree.data', function() {
+          console.log(attrs)
+          console.log(scope)
+        $(element).jstree({
+          "json_data" : scope.jstree,
+          "plugins" : [ "themes", "json_data" ]
+        });
       });
-    })
-  }
+    }
+  };
 });
 
 app.factory('Data', function($resource) {
