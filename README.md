@@ -2,4 +2,4 @@
 
 ###To run:
 
-    $ node scripts/web-server.js
+    angular-jstree/app $ node ../scripts/web-server.js
