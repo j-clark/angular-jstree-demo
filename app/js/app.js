@@ -9,13 +9,12 @@ var TestCtrl = function($scope, Data) {
 
 app.directive('jstree', function() {
   return {
+    restrict: 'A',
     scope: {
       jstree: '='
     },
     link: function(scope, element, attrs) {
       scope.$watch('jstree.data', function() {
-          console.log(attrs)
-          console.log(scope)
         $(element).jstree({
           "json_data" : scope.jstree,
           "plugins" : [ "themes", "json_data" ]
